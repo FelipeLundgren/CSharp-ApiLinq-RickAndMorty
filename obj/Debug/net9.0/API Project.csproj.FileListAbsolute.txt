@@ -1,0 +1,14 @@
+C:\Users\felipe.lundgren\Desktop\API Project\bin\Debug\net9.0\API Project.exe
+C:\Users\felipe.lundgren\Desktop\API Project\bin\Debug\net9.0\API Project.deps.json
+C:\Users\felipe.lundgren\Desktop\API Project\bin\Debug\net9.0\API Project.runtimeconfig.json
+C:\Users\felipe.lundgren\Desktop\API Project\bin\Debug\net9.0\API Project.dll
+C:\Users\felipe.lundgren\Desktop\API Project\bin\Debug\net9.0\API Project.pdb
+C:\Users\felipe.lundgren\Desktop\API Project\obj\Debug\net9.0\API Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\felipe.lundgren\Desktop\API Project\obj\Debug\net9.0\API Project.AssemblyInfoInputs.cache
+C:\Users\felipe.lundgren\Desktop\API Project\obj\Debug\net9.0\API Project.AssemblyInfo.cs
+C:\Users\felipe.lundgren\Desktop\API Project\obj\Debug\net9.0\API Project.csproj.CoreCompileInputs.cache
+C:\Users\felipe.lundgren\Desktop\API Project\obj\Debug\net9.0\API Project.dll
+C:\Users\felipe.lundgren\Desktop\API Project\obj\Debug\net9.0\refint\API Project.dll
+C:\Users\felipe.lundgren\Desktop\API Project\obj\Debug\net9.0\API Project.pdb
+C:\Users\felipe.lundgren\Desktop\API Project\obj\Debug\net9.0\API Project.genruntimeconfig.cache
+C:\Users\felipe.lundgren\Desktop\API Project\obj\Debug\net9.0\ref\API Project.dll
