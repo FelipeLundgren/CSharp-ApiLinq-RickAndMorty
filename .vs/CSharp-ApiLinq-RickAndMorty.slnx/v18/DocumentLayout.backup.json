@@ -46,8 +46,7 @@
               "RelativeToolTip": "wwwroot\\index.html",
               "ViewState": "AgIAAJkBAAAAAAAAAAAUwMABAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-07-03T18:50:08.377Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-03T18:50:08.377Z"
             },
             {
               "$type": "Document",
@@ -57,7 +56,7 @@
               "RelativeDocumentMoniker": "Caracters.cs",
               "ToolTip": "C:\\Users\\felip\\Documents\\GitHub\\CSharp-ApiLinq-RickAndMorty\\Caracters.cs",
               "RelativeToolTip": "Caracters.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-03T18:48:22.083Z",
               "EditorCaption": ""
@@ -72,8 +71,7 @@
               "RelativeToolTip": "API Project.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-07-03T18:42:42.414Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-03T18:42:42.414Z"
             },
             {
               "$type": "Document",
@@ -85,8 +83,7 @@
               "RelativeToolTip": "ApiManager.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAAAC8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-03T18:41:07.724Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-03T18:41:07.724Z"
             },
             {
               "$type": "Document",
@@ -98,8 +95,7 @@
               "RelativeToolTip": "Menu.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAkwCYAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-03T18:33:48.141Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-03T18:33:48.141Z"
             },
             {
               "$type": "Document",
@@ -111,8 +107,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-03T18:27:55.567Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-03T18:27:55.567Z"
             }
           ]
         }
