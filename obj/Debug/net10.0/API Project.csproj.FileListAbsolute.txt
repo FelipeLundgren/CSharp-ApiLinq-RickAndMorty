@@ -1,0 +1,29 @@
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\bin\Debug\net10.0\API Project.staticwebassets.runtime.json
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\bin\Debug\net10.0\API Project.staticwebassets.endpoints.json
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\bin\Debug\net10.0\API Project.exe
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\bin\Debug\net10.0\API Project.deps.json
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\bin\Debug\net10.0\API Project.runtimeconfig.json
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\bin\Debug\net10.0\API Project.dll
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\bin\Debug\net10.0\API Project.pdb
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\API Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\API Project.AssemblyInfoInputs.cache
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\API Project.AssemblyInfo.cs
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\API Project.csproj.CoreCompileInputs.cache
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\API Project.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\API Project.sourcelink.json
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\scopedcss\bundle\API Project.styles.css
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\compressed\y3ta5pqqym-{0}-v7bnpzo2zd-v7bnpzo2zd.gz
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\API Project.dll
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\refint\API Project.dll
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\API Project.pdb
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\API Project.genruntimeconfig.cache
+C:\Users\felip\Documents\GitHub\CSharp-ApiLinq-RickAndMorty\obj\Debug\net10.0\ref\API Project.dll

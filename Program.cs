@@ -1,22 +1,30 @@
 ﻿using API_Project;
-using API_Project.Filtros;
-using System.Text.Json;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Libera o front-end (arquivo HTML aberto no navegador) a chamar essa API.
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
+});
+
+var app = builder.Build();
+app.UseCors();
 
 
-ApiManager api = new();
-Menu menu = new Menu();
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
+var api = new ApiManager();
 
 
+app.MapGet("/api/personagens", async (string? name, string? status, string? gender) =>
+{
+    var personagens = await api.BuscarPersonagensFiltrados(name, status, gender);
+    return Results.Ok(personagens);
+});
 
-menu.ExibirMenuPrincipal();
-
-
-menu.MenuInicial();
-
-
-
-
-
-
-
+app.Run();

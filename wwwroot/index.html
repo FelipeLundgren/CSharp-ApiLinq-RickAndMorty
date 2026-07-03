@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegador de Personagens — Rick and Morty</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0e0d;
+            --bg-panel: #121615;
+            --card: #161b19;
+            --line: #263029;
+            --portal: #97ce4c;
+            --portal-dim: #5c7a34;
+            --radiation: #f0e14a;
+            --text: #e9ede7;
+            --text-muted: #8a948b;
+            --dead: #d9634c;
+            --alive: #97ce4c;
+            --unknown: #8a948b;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            background-image: radial-gradient(circle at 15% 20%, rgba(151,206,76,0.06), transparent 40%), radial-gradient(circle at 85% 80%, rgba(240,225,74,0.05), transparent 45%);
+            color: var(--text);
+            font-family: 'IBM Plex Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---------- Header ---------- */
+        header {
+            padding: 48px 24px 32px;
+            text-align: center;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .eyebrow {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            color: var(--portal);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Chakra Petch', sans-serif;
+            font-weight: 700;
+            font-size: clamp(28px, 5vw, 44px);
+            margin: 0 0 8px;
+            letter-spacing: 0.01em;
+        }
+
+            h1 span {
+                color: var(--portal);
+            }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* ---------- Filter bar ---------- */
+        .filters {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(11,14,13,0.92);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid var(--line);
+            padding: 16px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+            .field label {
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 10px;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: var(--text-muted);
+            }
+
+        input, select, button {
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 14px;
+            background: var(--bg-panel);
+            border: 1px solid var(--line);
+            color: var(--text);
+            border-radius: 6px;
+            padding: 9px 12px;
+            outline: none;
+            transition: border-color 0.15s ease;
+        }
+
+            input:focus, select:focus, button:focus-visible {
+                border-color: var(--portal);
+            }
+
+        input {
+            min-width: 200px;
+        }
+
+        .btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            color: var(--bg);
+            background: var(--portal);
+            border: 1px solid var(--portal);
+            font-weight: 600;
+            align-self: flex-end;
+        }
+
+            .btn:hover {
+                background: #a8de63;
+            }
+
+            .btn.secondary {
+                background: transparent;
+                color: var(--text);
+                border-color: var(--line);
+            }
+
+                .btn.secondary:hover {
+                    border-color: var(--text-muted);
+                }
+
+        /* ---------- Status line ---------- */
+        .status-line {
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-muted);
+            padding: 18px 24px 0;
+        }
+
+        /* ---------- Grid ---------- */
+        main {
+            padding: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 24px 0 60px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.18s ease, border-color 0.18s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-3px);
+                border-color: var(--portal-dim);
+            }
+
+        .portal-frame {
+            position: relative;
+            aspect-ratio: 1;
+            padding: 8px;
+            background: conic-gradient(from 180deg, var(--portal), var(--radiation), var(--portal-dim), var(--portal));
+        }
+
+            .portal-frame img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 6px;
+                display: block;
+            }
+
+        .card-body {
+            padding: 14px 16px 16px;
+        }
+
+        .card-name {
+            font-family: 'Chakra Petch', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            margin: 0 0 8px;
+        }
+
+        .tag-row {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+            .status-dot.Alive {
+                background: var(--alive);
+            }
+
+            .status-dot.Dead {
+                background: var(--dead);
+            }
+
+            .status-dot.unknown {
+                background: var(--unknown);
+            }
+
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+        }
+
+        .id-tag {
+            margin-left: auto;
+            color: var(--text-muted);
+            opacity: 0.7;
+        }
+
+        .origin {
+            margin-top: 8px;
+            font-size: 12px;
+            color: var(--text-muted);
+            border-top: 1px dashed var(--line);
+            padding-top: 8px;
+        }
+
+            .origin b {
+                color: var(--text);
+                font-weight: 500;
+            }
+
+        /* ---------- Empty / loading ---------- */
+        .placeholder {
+            text-align: center;
+            padding: 80px 24px;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+        }
+
+            .placeholder .ring {
+                width: 46px;
+                height: 46px;
+                margin: 0 auto 18px;
+                border-radius: 50%;
+                border: 3px solid var(--line);
+                border-top-color: var(--portal);
+                animation: spin 0.9s linear infinite;
+            }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .card, .ring {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            border-top: 1px solid var(--line);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="eyebrow">Dimension C-137 · API Client</div>
+        <h1>Navegador de <span>Personagens</span></h1>
+        <p class="subtitle">Busque, filtre e ordene os moradores do multiverso direto da Rick and Morty API.</p>
+    </header>
+
+    <div class="filters">
+        <div class="field">
+            <label for="name">Nome</label>
+            <input type="text" id="name" placeholder="ex: Rick">
+        </div>
+        <div class="field">
+            <label for="status">Status</label>
+            <select id="status">
+                <option value="">Todos</option>
+                <option value="alive">Alive</option>
+                <option value="dead">Dead</option>
+                <option value="unknown">Unknown</option>
+            </select>
+        </div>
+        <div class="field">
+            <label for="gender">Gênero</label>
+            <select id="gender">
+                <option value="">Todos</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="genderless">Genderless</option>
+                <option value="unknown">Unknown</option>
+            </select>
+        </div>
+        <button class="btn" id="searchBtn">Buscar</button>
+        <button class="btn secondary" id="sortBtn">Ordenar A-Z</button>
+    </div>
+
+    <div class="status-line" id="statusLine"></div>
+
+    <main>
+        <div id="results" class="grid"></div>
+    </main>
+
+    <footer>dados fornecidos por rickandmortyapi.com</footer>
+
+    <script>
+        const resultsEl = document.getElementById('results');
+        const statusLine = document.getElementById('statusLine');
+        const nameInput = document.getElementById('name');
+        const statusSelect = document.getElementById('status');
+        const genderSelect = document.getElementById('gender');
+        const searchBtn = document.getElementById('searchBtn');
+        const sortBtn = document.getElementById('sortBtn');
+
+        let personagensAtuais = [];
+        let ordenado = false;
+
+        function showLoading() {
+            resultsEl.innerHTML = `<div class="placeholder" style="grid-column:1/-1">
+          <div class="ring"></div>
+          Abrindo o portal…
+        </div>`;
+        }
+
+        function showEmpty(msg) {
+            resultsEl.innerHTML = `<div class="placeholder" style="grid-column:1/-1">
+          Nenhum personagem encontrado.<br>${msg || 'Tente ajustar os filtros.'}
+        </div>`;
+        }
+
+        function showError() {
+            resultsEl.innerHTML = `<div class="placeholder" style="grid-column:1/-1">
+          Erro na requisição. Verifique sua conexão ou tente novamente.
+        </div>`;
+        }
+
+        function render(personagens) {
+            if (!personagens.length) { showEmpty(); return; }
+
+            resultsEl.innerHTML = personagens.map(p => `
+          <div class="card">
+            <div class="portal-frame"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>
+            <div class="card-body">
+              <h3 class="card-name">${p.name}</h3>
+              <div class="tag-row">
+                <span class="tag"><span class="status-dot ${p.status}"></span>${p.status}</span>
+                <span class="tag">${p.gender}</span>
+                <span class="tag id-tag">#${p.id}</span>
+              </div>
+              <div class="origin"><b>Origem:</b> ${p.origin?.name || 'Desconhecida'}</div>
+            </div>
+          </div>
+        `).join('');
+        }
+
+        // Caminho relativo: como o HTML agora é servido pela própria API, não precisa de URL fixa.
+        const API_BASE = '';
+
+        async function buscarPersonagens() {
+            const params = new URLSearchParams();
+            if (nameInput.value.trim()) params.set('name', nameInput.value.trim());
+            if (statusSelect.value) params.set('status', statusSelect.value);
+            if (genderSelect.value) params.set('gender', genderSelect.value);
+
+            const url = `${API_BASE}/api/personagens?${params.toString()}`;
+
+            showLoading();
+            ordenado = false;
+            sortBtn.textContent = 'Ordenar A-Z';
+
+            try {
+                const resposta = await fetch(url);
+                if (!resposta.ok) throw new Error('Falha na requisição');
+
+                const personagens = await resposta.json();
+                personagensAtuais = personagens;
+                statusLine.textContent = `${personagens.length} personagem(ns) encontrado(s)`;
+                render(personagensAtuais);
+
+            } catch (err) {
+                statusLine.textContent = '';
+                showError();
+            }
+        }
+
+        function ordenarAlfabeticamente() {
+            if (!personagensAtuais.length) return;
+            ordenado = !ordenado;
+            const lista = [...personagensAtuais].sort((a, b) => ordenado
+                ? a.name.localeCompare(b.name)
+                : b.name.localeCompare(a.name));
+            sortBtn.textContent = ordenado ? 'Ordenar Z-A' : 'Ordenar A-Z';
+            render(lista);
+        }
+
+        searchBtn.addEventListener('click', buscarPersonagens);
+        sortBtn.addEventListener('click', ordenarAlfabeticamente);
+        nameInput.addEventListener('keydown', e => { if (e.key === 'Enter') buscarPersonagens(); });
+
+        buscarPersonagens();
+    </script>
+</body>
+</html>
